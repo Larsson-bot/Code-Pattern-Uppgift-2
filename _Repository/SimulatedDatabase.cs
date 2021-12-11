@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Design_Patterns_Assignment._Repository.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,30 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment
 {
-    class SimulatedDatabase
+    public class SimulatedDatabase
     {
-        internal static string Load(string v)
+        private List<Animal> Animals = new List<Animal>();
+        private List<Customer> Customers = new List<Customer>();
+
+     
+
+        public void AddEntitysForDevelopmentTesting()
         {
-            return v;
+            Animals.Add(new Animal() { Id = 1, Name = "Bengt" });
+            Animals.Add(new Animal() { Id = 2, Name = "Gertrud" });
+            Customers.Add(new Customer() { Id = 1, Name = "Sara" });
+            Customers.Add(new Customer() { Id = 2, Name = "Peter" });
         }
 
-        internal static void Save(string data)
+
+        public List<Animal> GetAnimals()
         {
-            Console.WriteLine($"Saving data \"{data}\"");
+            return Animals;
+        }
+
+        public List<Customer> GetCustomers()
+        {
+            return Customers;
         }
     }
 }

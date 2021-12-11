@@ -7,31 +7,33 @@ namespace Design_Patterns_Assignment._Repository.Repositories
 {
     internal class DataRepository : IDataRepository
     {
-        private List<Animal> Animals;
-        private List<Customer> Customers;
+        //private List<Animal> Animals;
+        //private List<Customer> Customers;
+        private SimulatedDatabase SimulatedDatabase { get; set; }
 
-        public DataRepository()
+        public DataRepository(SimulatedDatabase simulatedDatabase)
         {
-            Animals = new List<Animal>();
-            Customers = new List<Customer>();
+            SimulatedDatabase = simulatedDatabase;
+            //Animals = new List<Animal>();
+            //Customers = new List<Customer>();
         }
 
-        public void AddEntitysForDevelopmentTesting()
-        {
-            Animals.Add(new Animal() { Id = 1, Name = "Bengt" });
-            Animals.Add(new Animal() { Id = 2, Name = "Gertrud" });
-            Customers.Add(new Customer() { Id = 1, Name = "Sara" });
-            Customers.Add(new Customer() { Id = 2, Name = "Peter" });
-        }
+        //public void AddEntitysForDevelopmentTesting()
+        //{
+        //    Animals.Add(new Animal() { Id = 1, Name = "Bengt" });
+        //    Animals.Add(new Animal() { Id = 2, Name = "Gertrud" });
+        //    Customers.Add(new Customer() { Id = 1, Name = "Sara" });
+        //    Customers.Add(new Customer() { Id = 2, Name = "Peter" });
+        //}
 
         public Animal LoadAnimal(int id)
         {
-            return Animals.FirstOrDefault(a => a.Id == id);
+            return SimulatedDatabase.GetAnimals().FirstOrDefault(a => a.Id == id);
         }
 
         public Customer LoadCustomer(int id)
         {
-            return Customers.FirstOrDefault(a => a.Id == id);
+            return SimulatedDatabase.GetCustomers().FirstOrDefault(a => a.Id == id);
         }
 
         public void LoadData(string data)
@@ -39,14 +41,14 @@ namespace Design_Patterns_Assignment._Repository.Repositories
             switch (data.ToLower())
             {
                 case "animals":
-                    foreach (var item in Animals)
+                    foreach (var item in SimulatedDatabase.GetAnimals())
                     {
                         Console.WriteLine(item.Id + " " + item.Name);
                     }
                     break;
 
                 case "customers":
-                    foreach (var item in Customers)
+                    foreach (var item in SimulatedDatabase.GetCustomers())
                     {
                         Console.WriteLine(item.Id + " " + item.Name);
                     }
@@ -60,12 +62,12 @@ namespace Design_Patterns_Assignment._Repository.Repositories
 
         public List<Animal> GetAnimals()
         {
-            return Animals;
+            return SimulatedDatabase.GetAnimals();
         }
 
         public List<Customer> GetCustomers()
         {
-            return Customers;
+            return SimulatedDatabase.GetCustomers();
         }
 
         public void Save(string data)
@@ -75,13 +77,13 @@ namespace Design_Patterns_Assignment._Repository.Repositories
 
         public void SaveAnimal(Animal animal)
         {
-            Animals.Add(animal);
+            SimulatedDatabase.GetAnimals().Add(animal);
             Console.WriteLine($"\"{animal.Name}\" has been created and saved to SQL Database");
         }
 
         public void SaveCustomer(Customer customer)
         {
-            Customers.Add(customer);
+            SimulatedDatabase.GetCustomers().Add(customer);
             Console.WriteLine($"\"{customer.Name}\" has been created and saved to SQL Database");
         }
     }

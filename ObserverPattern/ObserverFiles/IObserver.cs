@@ -9,6 +9,6 @@ namespace Design_Patterns_Assignment.ObserverPattern.ObserverFiles
     public interface IObserver
     {
    
-        void Update(string name);
+        void Update(DateTime time);
     }
 }

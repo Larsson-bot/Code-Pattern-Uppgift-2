@@ -16,6 +16,6 @@ namespace Design_Patterns_Assignment.ObserverPattern.SubjectFiles
         void Register(IObserver observer);
         void Unregister(IObserver observer);
 
-        void Notify(string name);
+        void Notify(DateTime time);
     }
 }

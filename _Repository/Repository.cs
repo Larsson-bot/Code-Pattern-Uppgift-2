@@ -8,8 +8,10 @@ namespace Design_Patterns_Assignment._Repository
     {
         public static void Run()
         {
-            DataRepository dataRepository = new DataRepository();
-            dataRepository.AddEntitysForDevelopmentTesting();
+            SimulatedDatabase simulatedDatabase = new SimulatedDatabase();
+            simulatedDatabase.AddEntitysForDevelopmentTesting();
+            DataRepository dataRepository = new DataRepository(simulatedDatabase);
+     
 
             bool loop = true;
 

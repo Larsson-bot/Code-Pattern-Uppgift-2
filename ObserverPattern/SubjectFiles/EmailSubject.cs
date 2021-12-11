@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns_Assignment.ObserverPattern.SubjectFiles
 {
-    internal class EmailSubject : ISubject
+    public class EmailSubject : ISubject
     {
         public List<IObserver> Observers { get; set; }
 
@@ -27,9 +27,9 @@ namespace Design_Patterns_Assignment.ObserverPattern.SubjectFiles
             Observers.Remove(observer);
         }
 
-        public void Notify(string name)
+        public void Notify(DateTime time)
         {
-            Observers.ForEach(x => x.Update(name));
+            Observers.ForEach(x => x.Update(time));
         }
     }
 }

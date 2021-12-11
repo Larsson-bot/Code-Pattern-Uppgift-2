@@ -15,9 +15,10 @@ namespace Design_Patterns_Assignment.ObserverPattern.ObserverFiles
             ObserverName = observerName;
         }
 
-        public void Update(string name)
+        public void Update(DateTime time)
         {
-            Console.WriteLine($"{ObserverName} has been notifed about a new email from {name}!");
+            Console.WriteLine($"{ObserverName} has been notifed about a new email! {time}");
+           
         }
     }
 }

@@ -1,17 +1,12 @@
 ﻿using Design_Patterns_Assignment.ObserverPattern.ObserverFiles;
 using Design_Patterns_Assignment.ObserverPattern.SubjectFiles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace Design_Patterns_Assignment.ObserverPattern
 {
     public static class ObserverApp
     {
-
         public static EmailSubject EmailSubject { get; set; }
 
         internal static void Run()
@@ -29,7 +24,6 @@ namespace Design_Patterns_Assignment.ObserverPattern
             // Start the timer
             emailTimer.Enabled = true;
 
-
             while (loop)
             {
                 Console.WriteLine("1: Register User/Unregister User");
@@ -40,7 +34,7 @@ namespace Design_Patterns_Assignment.ObserverPattern
                     case '1':
                         Console.Clear();
                         emailTimer.Stop();
-                        if ( UserObserver.ObserverName == "")
+                        if (UserObserver.ObserverName == "")
                         {
                             Console.WriteLine("Whats the observers Name?");
                             UserObserver.ObserverName = Console.ReadLine();
@@ -52,7 +46,6 @@ namespace Design_Patterns_Assignment.ObserverPattern
                         }
                         else
                         {
-
                             EmailSubject.Unregister(UserObserver);
                             Console.WriteLine($"User {UserObserver.ObserverName} has been unregistered!");
                             UserObserver.ObserverName = "";
@@ -62,20 +55,20 @@ namespace Design_Patterns_Assignment.ObserverPattern
                         }
                         emailTimer.Start();
                         break;
+
                     case 'X' or 'x':
                         loop = false;
                         emailTimer.Stop();
                         Console.Clear();
                         break;
+
                     default:
                         Console.WriteLine("Invalid command.");
                         break;
                 }
-
-
             }
-
         }
+
         private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             EmailSubject.Notify(e.SignalTime);

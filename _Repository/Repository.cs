@@ -131,26 +131,11 @@ namespace Design_Patterns_Assignment._Repository
 
                   
                         Console.WriteLine("You have input a command that does nothing");
+                        KeyMessage();
+                        Console.Clear();
                         break;
                 }
             }
-
-            //dataRepository.LoadData("Animals");
-            //dataRepository.LoadData("Customers");
-            //var animal  = dataRepository.LoadAnimal(1);
-            //var customer =  dataRepository.LoadCustomer(1);
-            //Console.WriteLine(customer.Id + " "+  customer.Name);
-            //Console.WriteLine(animal.Id + " " + animal.Name);
-
-            //AnimalRepository.Load("Den gör inget");
-            // Refactor this code so that it uses the Repository Pattern
-            Console.WriteLine("Repository");
-            //var data = SimulatedDatabase.Load("Dataset A");
-            //var customer = SimulatedDatabase.Load("From Table Customer Where Name==Steve"); // this is a search
-            //var animal = SimulatedDatabase.Load("From Table Animal Where Owner==Steve"); // this is a search
-            //SimulatedDatabase.Save(data);
-            //SimulatedDatabase.Save(customer);
-            //SimulatedDatabase.Save(animal);
         }
 
         public static void KeyMessage()

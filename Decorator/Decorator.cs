@@ -84,8 +84,10 @@ namespace Design_Patterns_Assignment.Decorator
 
                     case 'X' or 'x':
                         Console.WriteLine(textFromUser.GetTextWithTags());
+                        Console.WriteLine("Press any key to return to the pattern menu.");
                         Console.ReadKey();
                         loop = false;
+                        Console.Clear();
                         break;
                     default:
 

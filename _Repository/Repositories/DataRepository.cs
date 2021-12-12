@@ -7,25 +7,15 @@ namespace Design_Patterns_Assignment._Repository.Repositories
 {
     internal class DataRepository : IDataRepository
     {
-        //private List<Animal> Animals;
-        //private List<Customer> Customers;
+
         private SimulatedDatabase SimulatedDatabase { get; set; }
 
         public DataRepository(SimulatedDatabase simulatedDatabase)
         {
             SimulatedDatabase = simulatedDatabase;
-            //Animals = new List<Animal>();
-            //Customers = new List<Customer>();
         }
 
-        //public void AddEntitysForDevelopmentTesting()
-        //{
-        //    Animals.Add(new Animal() { Id = 1, Name = "Bengt" });
-        //    Animals.Add(new Animal() { Id = 2, Name = "Gertrud" });
-        //    Customers.Add(new Customer() { Id = 1, Name = "Sara" });
-        //    Customers.Add(new Customer() { Id = 2, Name = "Peter" });
-        //}
-
+     
         public Animal LoadAnimal(int id)
         {
             return SimulatedDatabase.GetAnimals().FirstOrDefault(a => a.Id == id);

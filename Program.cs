@@ -38,8 +38,9 @@ namespace ConsoleApp1
                         ObserverApp.Run();
                         break;
                     case '4':
-                        Decorator.Run();
                         Console.Clear();
+                        Decorator.Run();
+                   
                         break;
                     case 'X' or 'x':
                         loop = false;
